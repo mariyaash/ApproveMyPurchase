@@ -10,28 +10,28 @@ public class ApprovalSingleResultPrint {
     private ApprovalSingleResultPrint() {
     }
 
-    public static void print(ApprovalSingleResult singleApproveResult) {
-        if (singleApproveResult == null) {
-            throw new IllegalArgumentException("Single Approve Unit is null");
+    public static void print(ApprovalSingleResult approvalSingleResult) {
+        if (approvalSingleResult == null) {
+            throw new IllegalArgumentException("ApprovalSingleResult is null!");
         }
-        if (singleApproveResult.isApproved()) {
-            System.out.println(singleApproveResult.getApprover().getName() +
+        if (approvalSingleResult.isApproved()) {
+            System.out.println(approvalSingleResult.getApprover().getName() +
                     " approved purchase with id " +
-                    singleApproveResult.getProduct().getId() +
+                    approvalSingleResult.getProduct().getId() +
                     " and cost " +
-                    singleApproveResult.getProduct().getCost());
+                    approvalSingleResult.getProduct().getCost());
         } else {
-            if (singleApproveResult.getApprover().getName().equals("ExecutiveMeeting")) {
-                System.out.println("Purchase with id " + singleApproveResult.getProduct().getId() +
+            if (approvalSingleResult.getApprover().getName().equals("ExecutiveMeeting")) {
+                System.out.println("Purchase with id " + approvalSingleResult.getProduct().getId() +
                         " that costs " +
-                        singleApproveResult.getProduct().getCost() +
+                        approvalSingleResult.getProduct().getCost() +
                         " requires an approval of executive meeting.");
             } else {
 
                 System.out.println("Purchase with id " +
-                        singleApproveResult.getProduct().getId() +
+                        approvalSingleResult.getProduct().getId() +
                         " needs approval from higher position than " +
-                        singleApproveResult.getApprover().getName());
+                        approvalSingleResult.getApprover().getName());
             }
         }
     }

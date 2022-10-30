@@ -10,12 +10,12 @@ public class ApprovalChainResultPrint {
     private ApprovalChainResultPrint(){
 
     }
-    public static void print(ApprovalChainResult chainApproveResult){
-        if(chainApproveResult==null){
-            throw new IllegalArgumentException("ChainApproveResult is null");
+    public static void print(ApprovalChainResult approvalChainResult){
+        if(approvalChainResult==null){
+            throw new IllegalArgumentException("ChainApproveResult is null!");
         }
-        for(ApprovalSingleResult singleApproveResult:chainApproveResult.getUnmodifiableList()){
-            ApprovalSingleResultPrint.print(singleApproveResult);
+        for(ApprovalSingleResult approvalSingleResult:approvalChainResult.getUnmodifiableList()){
+            ApprovalSingleResultPrint.print(approvalSingleResult);
         }
     }
 

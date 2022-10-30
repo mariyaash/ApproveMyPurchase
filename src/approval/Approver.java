@@ -18,7 +18,7 @@ public abstract class Approver {
      */
 
     /**
-     *Method that approves a purchase. The result is appended in ChainApproveResult.
+     *Method that approves a purchase. The result is appended in ApproveChainResult.
      */
     public void approve(Product product, ApprovalChainResult chainApproveResult){
         boolean isApproved=false;

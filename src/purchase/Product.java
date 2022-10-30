@@ -1,7 +1,7 @@
 package purchase;
 
 /**
- * Stores information about purchase characteristics( unique id, cost and type).
+ * Stores information about purchase characteristics( unique id, cost and type of the exact purchase).
  */
 public class Product {
     private final int id;

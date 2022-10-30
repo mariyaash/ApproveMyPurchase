@@ -1,11 +1,12 @@
-package product;
+package purchase;
 
-import common.Type;
-import product.Product;
+/**
+ * This is like a factory used to create an immutable instance of Product object , with its unique id. It starts from 1.
+ */
 
 public final class ProductGenerator {
 
-    private static int generatedId;
+    private static int generatedId=1;
 
     private ProductGenerator(){}
 

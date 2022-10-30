@@ -1,4 +1,4 @@
-import handlers.*;
+import approval.*;
 
 /**
  * Used to generate chain of approval.

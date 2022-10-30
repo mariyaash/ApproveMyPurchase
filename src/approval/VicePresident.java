@@ -1,28 +1,19 @@
-package handlers;
+package approval;
 
-import common.Type;
-import product.Product;
+import purchase.Type;
+import purchase.Product;
 
 
 /**
  * //TODO - Implement approval implementation for VicePresident level
  */
 public class VicePresident extends Approver{
-    @Override
-    public boolean approve(Product product) {
-        if(canApprove(product)){
-            LastApproveInfo.setProduct(product);
-            LastApproveInfo.setApprover("VicePresident");
-            return true;
-        }
-        return next.approve(product);
+    public VicePresident(){
+        super("VicePresident");
     }
-
     @Override
     protected boolean canApprove(Product product) {
-        if(product==null){
-            return false;
-        }
+        validateProduct(product);
         Type type = product.getType();
         double cost = product.getCost();
 

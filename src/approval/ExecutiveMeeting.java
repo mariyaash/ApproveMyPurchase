@@ -1,6 +1,6 @@
-package handlers;
+package approval;
 
-import product.Product;
+import purchase.Product;
 
 /**
  * Used as a fallback in approval chain.
@@ -8,6 +8,9 @@ import product.Product;
  * If abstract methods are changed, be free to edit signatures.
  */
 public class ExecutiveMeeting extends Approver {
+    public ExecutiveMeeting(){
+        super("ExecutiveMeeting");
+    }
     private static final ExecutiveMeeting INSTANCE = new ExecutiveMeeting();
 
     public static ExecutiveMeeting getInstance() {
@@ -15,14 +18,8 @@ public class ExecutiveMeeting extends Approver {
     }
 
     @Override
-    public boolean approve(Product product) {
-
-        //System.out.println("Purchase with id " + id + " that costs " + cost + " requires an approval of executive meeting.");
-        return false;
-    }
-
-    @Override
     protected boolean canApprove(Product product) {
+        validateProduct(product);
         return false;
     }
 }

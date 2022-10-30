@@ -1,31 +1,18 @@
-package handlers;
+package approval;
 
-import common.Type;
-import product.Product;
+import purchase.Type;
+import purchase.Product;
 
 /**
  * //TODO - If needed, validate logic and if possible optimize code.
  */
 public class Director extends Approver {
-
-    @Override
-    public boolean approve(Product product) {
-        if (canApprove(product)) {
-            // System.out.println("Director approved purchase with id " + id + " that costs " + cost);
-            LastApproveInfo.setProduct(product);
-            LastApproveInfo.setApprover("Director");
-            return true;
-        }
-
-        //System.out.println("Purchase with id " + id + " needs approval from higher position than Director.");
-        return next.approve(product);
+    public Director(){
+        super("Director");
     }
-
     @Override
     protected boolean canApprove(Product product) {
-        if (product == null) {
-            return false;
-        }
+        validateProduct(product);
         Type type = product.getType();
         double cost = product.getCost();
 

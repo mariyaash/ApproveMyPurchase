@@ -1,53 +1,44 @@
-package handlers;
+package approval;
 
-import common.Type;
-import product.Product;
+import purchase.Type;
+import purchase.Product;
 
 /**
- * //TODO - Implement approval implementation for President level
+ * //TODO - If needed, validate logic and if possible optimize code
  */
-public class President extends Approver{
-    @Override
-    public boolean approve(Product product) {
-        if(canApprove(product)){
-            LastApproveInfo.setProduct(product);
-            LastApproveInfo.setApprover("President");
-            return true;
-        }
-        return next.approve(product);
+public class Manager extends Approver {
+    public Manager() {
+        super("Manager");
     }
-
     @Override
     protected boolean canApprove(Product product) {
-        if(product==null){
-            return false;
-        }
+        validateProduct(product);
         Type type = product.getType();
         double cost = product.getCost();
 
         switch (type) {
             case CONSUMABLES:
-                if (cost <= 1000) {
+                if (cost <= 300) {
                     return true;
                 }
                 break;
             case CLERICAL:
-                if (cost <= 2000) {
+                if (cost <= 500) {
                     return true;
                 }
                 break;
             case GADGETS:
-                if (cost <= 3000) {
+                if (cost <= 1000) {
                     return true;
                 }
                 break;
             case GAMING:
-                if (cost <= 5000) {
+                if (cost <= 3000) {
                     return true;
                 }
                 break;
             case PC:
-                if (cost <= 8000) {
+                if (cost <= 5000) {
                     return true;
                 }
                 break;

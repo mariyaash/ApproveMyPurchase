@@ -1,11 +1,12 @@
-package product;
+package purchase;
 
-import common.Type;
-
+/**
+ * Stores information about purchase characteristics( unique id, cost and type).
+ */
 public class Product {
     private final int id;
     private double cost;
-    private Type type;
+    private final Type type;
 
     Product(int id, double cost, Type type) {
         this.id = id;

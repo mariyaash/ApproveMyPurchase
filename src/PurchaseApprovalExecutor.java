@@ -1,7 +1,8 @@
-import common.Type;
-import handlers.*;
-import product.Product;
-import product.ProductGenerator;
+import print.ApprovalChainResultPrint;
+import purchase.Type;
+import approval.*;
+import purchase.Product;
+import purchase.ProductGenerator;
 
 /**
  * Execution class of the application.
@@ -17,21 +18,11 @@ public class PurchaseApprovalExecutor {
         Product product2= ProductGenerator.createProduct(5000, Type.PC);
         Product product3= ProductGenerator.createProduct(5000, Type.PC);
         Product product4= ProductGenerator.createProduct(3000, Type.CLERICAL);
-
-        if (manager.approve(product1)){
-            ApprovalPrint.print();
-        }
-        else{
-
-        }
-        if(manager.approve(product2)){
-            ApprovalPrint.print();
-        }
-        if(manager.approve(product3)){
-            ApprovalPrint.print();
-        }
-       if(manager.approve(product4)){
-           ApprovalPrint.print();
-       }
+        ApprovalChainResult result=new ApprovalChainResult();
+        manager.approve(product1,result);
+        manager.approve(product2,result);
+        manager.approve(product3,result);
+        manager.approve(product4,result);
+        ApprovalChainResultPrint.print(result);
     }
 }
